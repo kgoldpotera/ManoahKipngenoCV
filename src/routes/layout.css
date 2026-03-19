@@ -1,2 +1,170 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+@theme {
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--color-actualfood: #2dd4bf; /* A fresh green/teal for "food" and "actual" */
+	--color-actualfood-dark: #0f766e;
+	--color-glass: rgba(255, 255, 255, 0.03);
+	--color-glass-border: rgba(255, 255, 255, 0.15);
+	--color-glass-hover: rgba(255, 255, 255, 0.08);
+	--color-surface: #030712;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #020617; /* Very deep slate/blue for maximum glass contrast */
+	color: #f8fafc;
+	overflow-x: hidden;
+	font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+	background-color: rgba(45, 212, 191, 0.3);
+	color: #fff;
+}
+
+/* ── Mesh Background w/ Noise ────────────────────── */
+.mesh-bg {
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	overflow: hidden;
+	background: radial-gradient(circle at 10% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 40%),
+		radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
+		radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%),
+		#020617;
+}
+
+.noise-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	opacity: 0.04;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+	pointer-events: none;
+}
+
+/* ── PREMIUM Frosted Glass Utilities ──────────────── */
+.actual-glass {
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	border-left: 1px solid rgba(255, 255, 255, 0.15);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.actual-glass-strong {
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+	backdrop-filter: blur(40px);
+	-webkit-backdrop-filter: blur(40px);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	border-left: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.actual-glass-card {
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 1.5rem;
+	transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.actual-glass-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(
+		to right,
+		transparent,
+		rgba(255, 255, 255, 0.05),
+		transparent
+	);
+	transform: skewX(-20deg);
+	transition: all 0.7s ease;
+}
+
+.actual-glass-card:hover {
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+	border-color: rgba(45, 212, 191, 0.4);
+	box-shadow:
+		0 0 40px rgba(45, 212, 191, 0.1),
+		0 25px 50px -12px rgba(0, 0, 0, 0.6);
+	transform: translateY(-6px) scale(1.01);
+}
+
+.actual-glass-card:hover::before {
+	left: 200%;
+}
+
+/* ── Typography & Gradients ──────────────────────── */
+.text-gradient {
+	background: linear-gradient(135deg, #2dd4bf, #0ea5e9);
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientFlow 8s ease infinite;
+}
+
+.text-gradient-subtle {
+	background: linear-gradient(135deg, #94a3b8, #e2e8f0);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientFlow {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+/* ── Navigation ──────────────────────────────────── */
+.nav-glass {
+	background: rgba(2, 6, 23, 0.5);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Badges ──────────────────────────────────────── */
+.tag-actual {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.35rem 0.85rem;
+	border-radius: 9999px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	background: rgba(45, 212, 191, 0.1);
+	color: #5eead4;
+	border: 1px solid rgba(45, 212, 191, 0.2);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb {
+	background: rgba(45, 212, 191, 0.3);
+	border-radius: 4px;
+	border: 2px solid #020617;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(45, 212, 191, 0.6); }
