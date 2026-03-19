@@ -19,14 +19,7 @@ export function scrollReveal(
 		start?: string;
 	} = {}
 ) {
-	const {
-		y = 60,
-		x = 0,
-		duration = 1,
-		stagger = 0.15,
-		delay = 0,
-		start = 'top 85%'
-	} = opts;
+	const { y = 60, x = 0, duration = 1, stagger = 0.15, delay = 0, start = 'top 85%' } = opts;
 
 	return gsap.from(selector, {
 		y,
@@ -37,7 +30,8 @@ export function scrollReveal(
 		delay,
 		ease: 'power3.out',
 		scrollTrigger: {
-			trigger: typeof selector === 'string' ? selector : (Array.isArray(selector) ? selector[0] : selector),
+			trigger:
+				typeof selector === 'string' ? selector : Array.isArray(selector) ? selector[0] : selector,
 			start,
 			toggleActions: 'play none none none'
 		}
@@ -54,11 +48,7 @@ export function heroEntrance(container: Element) {
 		duration: 1.2,
 		stagger: 0.12
 	})
-		.from(
-			container.querySelectorAll('.hero-sub'),
-			{ y: 30, opacity: 0, duration: 0.8 },
-			'-=0.6'
-		)
+		.from(container.querySelectorAll('.hero-sub'), { y: 30, opacity: 0, duration: 0.8 }, '-=0.6')
 		.from(
 			container.querySelectorAll('.hero-cta'),
 			{ y: 20, opacity: 0, duration: 0.6, stagger: 0.1 },

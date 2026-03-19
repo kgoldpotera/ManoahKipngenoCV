@@ -6,19 +6,27 @@
 
 	onMount(() => {
 		gsap.from(pageEl.querySelectorAll('.case-hero > *'), {
-			y: 60, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out'
+			y: 60,
+			opacity: 0,
+			duration: 1,
+			stagger: 0.12,
+			ease: 'power3.out'
 		});
 
 		pageEl.querySelectorAll('.reveal-section').forEach((section) => {
 			gsap.from(section, {
-				y: 60, opacity: 0, duration: 0.9, ease: 'power3.out',
+				y: 60,
+				opacity: 0,
+				duration: 0.9,
+				ease: 'power3.out',
 				scrollTrigger: { trigger: section, start: 'top 80%' }
 			});
 		});
 
 		pageEl.querySelectorAll('.parallax-img').forEach((img) => {
 			gsap.to(img, {
-				y: -30, ease: 'none',
+				y: -30,
+				ease: 'none',
 				scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: 1 }
 			});
 		});
@@ -32,7 +40,10 @@
 <main bind:this={pageEl} class="px-6 py-32">
 	<div class="mx-auto max-w-4xl">
 		<div class="case-hero mb-16">
-			<a href="/work" class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-cyan-400">
+			<a
+				href="/work"
+				class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-cyan-400"
+			>
 				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
 				</svg>
@@ -46,7 +57,7 @@
 				<span class="text-xs text-slate-500">DrugIndex.it • 2025</span>
 			</div>
 
-			<h1 class="text-4xl font-black leading-tight text-white md:text-5xl">
+			<h1 class="text-4xl leading-tight font-black text-white md:text-5xl">
 				Graceful Error
 				<span class="text-gradient">Handling</span>
 			</h1>
@@ -69,9 +80,11 @@
 			<h2 class="mb-6 text-2xl font-bold text-white">The Challenge</h2>
 			<div class="glass-card p-8">
 				<p class="leading-relaxed text-slate-300">
-					A medical reference platform cannot afford confusing error states. When a clinician encounters a
-					broken link or searches for a drug that doesn't exist in the database, the default browser error
-					page destroys trust. The challenge was to <strong class="text-cyan-400">catch every possible failure mode</strong>
+					A medical reference platform cannot afford confusing error states. When a clinician
+					encounters a broken link or searches for a drug that doesn't exist in the database, the
+					default browser error page destroys trust. The challenge was to <strong
+						class="text-cyan-400">catch every possible failure mode</strong
+					>
 					and transform it into a helpful, branded experience that guides users back to productive work.
 				</p>
 			</div>
@@ -92,17 +105,17 @@
 				<div class="glass-card p-6">
 					<h3 class="mb-2 font-bold text-cyan-400">2. Database Miss Handling</h3>
 					<p class="text-sm leading-relaxed text-slate-400">
-						When an IndexedDB query returns no results for a drug, instead of showing an empty state, the
-						app suggests similar drugs, shows popular searches, and provides a direct path back to the
-						dashboard — maintaining user flow.
+						When an IndexedDB query returns no results for a drug, instead of showing an empty
+						state, the app suggests similar drugs, shows popular searches, and provides a direct
+						path back to the dashboard — maintaining user flow.
 					</p>
 				</div>
 				<div class="glass-card p-6">
 					<h3 class="mb-2 font-bold text-cyan-400">3. On-Brand Visual Design</h3>
 					<p class="text-sm leading-relaxed text-slate-400">
-						Designed error pages that feel like a natural part of the application. Custom illustrations,
-						helpful messaging, and prominent CTAs ensure users never feel lost — they're always one click
-						away from the main workspace.
+						Designed error pages that feel like a natural part of the application. Custom
+						illustrations, helpful messaging, and prominent CTAs ensure users never feel lost —
+						they're always one click away from the main workspace.
 					</p>
 				</div>
 			</div>
@@ -138,10 +151,16 @@
 		</section>
 
 		<div class="flex items-center justify-between border-t border-white/10 pt-8">
-			<a href="/work/drugindex-search" class="text-sm font-medium text-slate-400 transition-colors hover:text-cyan-400">
+			<a
+				href="/work/drugindex-search"
+				class="text-sm font-medium text-slate-400 transition-colors hover:text-cyan-400"
+			>
 				← Search Engine
 			</a>
-			<a href="/work/jobjack-lead-gen" class="text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300">
+			<a
+				href="/work/jobjack-lead-gen"
+				class="text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300"
+			>
 				Next: Lead Generation →
 			</a>
 		</div>

@@ -10,7 +10,8 @@
 			title: 'Interactive Drug Price Visualization',
 			company: 'DrugIndex.it',
 			tags: ['D3.js', 'SvelteKit', 'Dexie.js'],
-			description: 'Dynamic multi-series SVG line charts visualizing drug price variations across 20 historical editions with real-time data binding.',
+			description:
+				'Dynamic multi-series SVG line charts visualizing drug price variations across 20 historical editions with real-time data binding.',
 			featured: true
 		},
 		{
@@ -18,7 +19,8 @@
 			title: 'Zero-Latency Search Engine',
 			company: 'DrugIndex.it',
 			tags: ['Fuse.js', 'IndexedDB', 'Performance'],
-			description: 'Client-side search engine aggregating multiple database collections with a custom multi-tiered sorting algorithm.',
+			description:
+				'Client-side search engine aggregating multiple database collections with a custom multi-tiered sorting algorithm.',
 			featured: false
 		},
 		{
@@ -26,7 +28,8 @@
 			title: 'Graceful Error Handling & Routing',
 			company: 'DrugIndex.it',
 			tags: ['SvelteKit', 'UX Design', 'Routing'],
-			description: 'On-brand error pages with seamless recovery flows leveraging SvelteKit\'s routing architecture.',
+			description:
+				"On-brand error pages with seamless recovery flows leveraging SvelteKit's routing architecture.",
 			featured: false
 		},
 		{
@@ -34,7 +37,8 @@
 			title: 'Lead Generation & HR Automation',
 			company: 'JobJack Kenya',
 			tags: ['Operations', 'Strategy', 'Automation'],
-			description: 'Built a partner database of 100+ clients through systematic outreach and developed a 48-hour job placement system.',
+			description:
+				'Built a partner database of 100+ clients through systematic outreach and developed a 48-hour job placement system.',
 			featured: false
 		}
 	];
@@ -70,8 +74,8 @@
 			<span class="tag mb-4 inline-block">Portfolio</span>
 			<h1 class="mt-4 text-5xl font-black text-white md:text-6xl">Case Studies</h1>
 			<p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
-				Each project below is a deep dive into real engineering challenges I've solved.
-				From data visualization to search optimization — these are the stories behind the code.
+				Each project below is a deep dive into real engineering challenges I've solved. From data
+				visualization to search optimization — these are the stories behind the code.
 			</p>
 		</div>
 
@@ -85,7 +89,7 @@
 				>
 					<!-- Company badge -->
 					<div class="mb-4 flex items-center justify-between">
-						<span class="text-xs font-bold uppercase tracking-widest text-slate-500">
+						<span class="text-xs font-bold tracking-widest text-slate-500 uppercase">
 							{study.company}
 						</span>
 						<span class="text-xs text-slate-600">0{i + 1}</span>
@@ -99,7 +103,11 @@
 					</div>
 
 					<!-- Title -->
-					<h2 class="mb-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-400 {study.featured ? 'md:text-3xl' : ''}">
+					<h2
+						class="mb-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-400 {study.featured
+							? 'md:text-3xl'
+							: ''}"
+					>
 						{study.title}
 					</h2>
 
@@ -109,15 +117,26 @@
 					</p>
 
 					<!-- Arrow -->
-					<div class="mt-6 flex items-center gap-2 text-sm font-medium text-cyan-400 opacity-0 transition-all duration-300 group-hover:opacity-100">
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-medium text-cyan-400 opacity-0 transition-all duration-300 group-hover:opacity-100"
+					>
 						Read full case study
-						<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<svg
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="2"
+						>
 							<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
 						</svg>
 					</div>
 
 					<!-- Hover glow -->
-					<div class="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-cyan-500/5 opacity-0 blur-[60px] transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true"></div>
+					<div
+						class="pointer-events-none absolute -right-20 -bottom-20 h-40 w-40 rounded-full bg-cyan-500/5 opacity-0 blur-[60px] transition-opacity duration-500 group-hover:opacity-100"
+						aria-hidden="true"
+					></div>
 				</a>
 			{/each}
 		</div>

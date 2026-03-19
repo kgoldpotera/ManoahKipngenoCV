@@ -48,13 +48,15 @@
 
 <nav
 	bind:this={navEl}
-	class="fixed top-0 right-0 left-0 z-50 transition-all duration-500 border-b border-transparent
+	class="fixed top-0 right-0 left-0 z-50 border-b border-transparent transition-all duration-500
 		{scrolled ? 'actual-glass shadow-lg shadow-black/40' : 'bg-transparent'}"
 >
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 		<!-- Logo -->
 		<a href="/" class="group relative flex items-center gap-2">
-			<span class="text-2xl font-black tracking-tight text-white transition-colors group-hover:text-teal-400">
+			<span
+				class="text-2xl font-black tracking-tight text-white transition-colors group-hover:text-teal-400"
+			>
 				MK<span class="text-teal-400">.</span>
 			</span>
 		</a>
@@ -72,7 +74,9 @@
 					>
 						{link.label}
 						{#if isActive(link.href, $page.url.pathname)}
-							<span class="absolute bottom-1 left-1/2 h-[3px] w-1/2 -translate-x-1/2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.8)]"></span>
+							<span
+								class="absolute bottom-1 left-1/2 h-[3px] w-1/2 -translate-x-1/2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.8)]"
+							></span>
 						{/if}
 					</a>
 				</li>
@@ -82,34 +86,44 @@
 		<!-- CTA button -->
 		<a
 			href="mailto:manoah@example.com"
-			class="hidden rounded-full border border-teal-500/40 bg-teal-500/10 px-6 py-2.5 text-sm font-bold text-teal-300 backdrop-blur-sm transition-all duration-300 hover:border-teal-400/80 hover:bg-teal-400/20 hover:shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:text-white md:inline-flex"
+			class="hidden rounded-full border border-teal-500/40 bg-teal-500/10 px-6 py-2.5 text-sm font-bold text-teal-300 backdrop-blur-sm transition-all duration-300 hover:border-teal-400/80 hover:bg-teal-400/20 hover:text-white hover:shadow-[0_0_20px_rgba(45,212,191,0.3)] md:inline-flex"
 		>
 			Hire Manoah
 		</a>
 
 		<!-- Mobile toggle -->
 		<button
-			class="flex flex-col gap-1.5 xl:hidden p-2 rounded-md hover:bg-white/10"
+			class="flex flex-col gap-1.5 rounded-md p-2 hover:bg-white/10 xl:hidden"
 			onclick={() => (mobileOpen = !mobileOpen)}
 			aria-label="Toggle menu"
 		>
-			<span class="block h-0.5 w-6 bg-white transition-all duration-300 {mobileOpen ? 'translate-y-2 rotate-45' : ''}"></span>
-			<span class="block h-0.5 w-6 bg-white transition-all duration-300 {mobileOpen ? 'opacity-0' : ''}"></span>
-			<span class="block h-0.5 w-6 bg-white transition-all duration-300 {mobileOpen ? '-translate-y-2 -rotate-45' : ''}"></span>
+			<span
+				class="block h-0.5 w-6 bg-white transition-all duration-300 {mobileOpen
+					? 'translate-y-2 rotate-45'
+					: ''}"
+			></span>
+			<span
+				class="block h-0.5 w-6 bg-white transition-all duration-300 {mobileOpen ? 'opacity-0' : ''}"
+			></span>
+			<span
+				class="block h-0.5 w-6 bg-white transition-all duration-300 {mobileOpen
+					? '-translate-y-2 -rotate-45'
+					: ''}"
+			></span>
 		</button>
 	</div>
 
 	<!-- Mobile menu -->
 	{#if mobileOpen}
 		<div class="actual-glass-strong border-t border-white/10 xl:hidden">
-			<div class="flex flex-col min-h-screen px-6 py-8 space-y-4">
+			<div class="flex min-h-screen flex-col space-y-4 px-6 py-8">
 				{#each links as link}
 					<a
 						href={link.href}
-						class="rounded-xl px-6 py-4 text-lg font-bold transition-colors border border-transparent
+						class="rounded-xl border border-transparent px-6 py-4 text-lg font-bold transition-colors
 							{isActive(link.href, $page.url.pathname)
-							? 'bg-teal-500/10 text-teal-400 border-teal-500/20 shadow-[inset_0_0_20px_rgba(45,212,191,0.1)]'
-							: 'text-slate-300 hover:bg-white/5 hover:text-white hover:border-white/10'}"
+							? 'border-teal-500/20 bg-teal-500/10 text-teal-400 shadow-[inset_0_0_20px_rgba(45,212,191,0.1)]'
+							: 'text-slate-300 hover:border-white/10 hover:bg-white/5 hover:text-white'}"
 						onclick={() => (mobileOpen = false)}
 					>
 						{link.label}

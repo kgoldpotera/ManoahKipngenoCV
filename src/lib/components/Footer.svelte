@@ -8,9 +8,7 @@
 			<!-- Logo & tagline -->
 			<div>
 				<span class="text-xl font-black text-white">MK<span class="text-cyan-400">.</span></span>
-				<p class="mt-2 text-sm text-slate-500">
-					Built with SvelteKit, Tailwind CSS & GSAP
-				</p>
+				<p class="mt-2 text-sm text-slate-500">Built with SvelteKit, Tailwind CSS & GSAP</p>
 			</div>
 
 			<!-- Social links -->
